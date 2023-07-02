@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/holodex-app/static/css/main.e6c13ad2.css",
-    "main.js": "/holodex-app/static/js/main.1b7ea1dd.js",
+    "main.css": "/holodex-app/static/css/main.ec9b757f.css",
+    "main.js": "/holodex-app/static/js/main.fa5b3dd0.js",
     "index.html": "/holodex-app/index.html",
-    "main.e6c13ad2.css.map": "/holodex-app/static/css/main.e6c13ad2.css.map",
-    "main.1b7ea1dd.js.map": "/holodex-app/static/js/main.1b7ea1dd.js.map"
+    "main.ec9b757f.css.map": "/holodex-app/static/css/main.ec9b757f.css.map",
+    "main.fa5b3dd0.js.map": "/holodex-app/static/js/main.fa5b3dd0.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.1b7ea1dd.js"
+    "static/css/main.ec9b757f.css",
+    "static/js/main.fa5b3dd0.js"
   ]
 }
