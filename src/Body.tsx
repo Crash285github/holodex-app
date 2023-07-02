@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Body.css'
 import TalentCard, { Talent } from './TalentCard';
 
 const Body = () => {
 
-  const [talents, setTalents] = useState<Talent[] | null>(null)
+  const [talents, setTalents] = useState<Talent[]>()
 
 
 //   async function asd(){
@@ -22,6 +22,10 @@ const Body = () => {
 //       console.error(error);
 // }
 //   }
+
+  useEffect(() => {
+    setTalents([])
+  },[])
 
   return ( 
     <>
