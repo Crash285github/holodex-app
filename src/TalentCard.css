@@ -1,40 +1,36 @@
 .talent-card{
   display: flex;
-  gap: 10px;
-  font-size: 20px;
   align-items: center;
 
+  gap: 10px;
+  font-size: 20px;
 
   padding: 5px;
-  margin: auto;
+  margin: 10px auto;
 
-  background-color: white;
+  background: white;
 
   border-radius: 10px;
 
   transition: 200ms;
-
-  box-shadow: 2px 2px 2px #4d9fee;
-
-
+  overflow: hidden;
 }
 
 .talent-card:hover{
   box-shadow: 2px 2px 2px #f477a6;
+  background: #27c7ff;
 }
 
-
-.talent-card .profile img{
+/* #region profile-image */
+.talent-card .profile-image img{
   height: 100px;
 
   border-radius: 100%;
 
   position: relative;
-
-
 }
 
-.talent-card .profile .image-container{
+.talent-card .profile-image .image-container{
   border-radius: 100%;
   border: 5px solid #4d9fee;
 
@@ -46,85 +42,83 @@
   transition: 200ms;
 }
 
-.talent-card .profile .image-container:hover{
+.talent-card .profile-image .image-container:hover{
   border: 5px solid #f477a6;
 }
 
-.talent-card .profile .default{
+.talent-card .profile-image .default{
   filter: grayscale(80%) contrast(30%) brightness(160%) blur(1px);
 }
+/* #endregion */
 
-.talent-card .information{
-  display: grid;
-  grid-template-columns: auto auto 0 1fr auto;
-  gap: 5px 30px ;
-  width: 100%;
+
+/* #region details */
+.talent-card .details{
+  display: flex;
+  flex-direction: column;
 }
 
-.talent-card .information *{
-  height: fit-content;
-  white-space: nowrap;
-}
-
-.talent-card .information .name-and-group{
-  grid-row: 1;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  padding-right: 15px;
+.talent-card .details .name-and-group{
   border-bottom: #4d9fee 2px solid;
+  padding-right: 15px;
+
+  font-weight: 900;
 
   transition: 200ms;
 }
 
-.talent-card:has(.profile img:hover) .information .name-and-group{
+.talent-card:has(.profile-image .image-container:hover) .details .name-and-group{
   border-bottom: #f477a6 2px solid;
 }
 
-.talent-card .information .subs{
-  grid-row: 2;
-  margin-left: 10px;
-}
+.talent-card .details .subs{
+  margin-left: 5px;
+  white-space: nowrap;
 
-.talent-card .information .videos{
-  grid-row: 2;
+  overflow: hidden;
 }
+/* #endregion */
 
-.talent-card .information .twitter,
-.talent-card .information .twitch{
+
+/* #region socials */
+.talent-card .socials{
+  margin-left: auto;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-self: flex-end;
+  gap: 10px;
+}
 
-  justify-self: end;
+.talent-card .socials .twitch,
+.talent-card .socials .twitter{
+  display: flex;
+}
 
-  font-weight: 900;
+.talent-card .socials .twitch img,
+.talent-card .socials .twitter img{
+  height: 30px;
+  align-self: center;
+}
+
+.talent-card .socials a{
   text-decoration: none;
-  color:#4d9fee;
-  cursor: pointer;
+  color: #4d9fee;
+  font-weight: 900;
 
   transition: 200ms;
+
+  align-self: flex-end;
 }
 
-.talent-card .information .twitter:hover,
-.talent-card .information .twitch:hover{
+.talent-card .socials a:hover{
   color: #f477a6;
 }
 
-
-.talent-card .information .twitter img,
-.talent-card .information .twitch img{
-  height: 20px;
+.talent-card:hover .socials a:not(:hover){
+  color: white;
 }
 
-.talent-card .information .twitter{
-  grid-row: 1;
-  grid-column: 5;
-}
 
-.talent-card .information .twitch{
-  grid-row: 2;
-  grid-column: 5;
-}
 
-.talent-card .information .hot-topics{
-  grid-row: 3;
-}
+
+/* #endregion */

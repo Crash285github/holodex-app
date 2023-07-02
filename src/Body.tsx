@@ -1,35 +1,39 @@
+import { useState } from 'react';
 import './Body.css'
-import TalentCard from './TalentCard';
-
-
+import TalentCard, { Talent } from './TalentCard';
 
 const Body = () => {
 
-  const gura = {
-    "id": "UCoSrY_IQQVpmIRZ9Xf-y93g",
-    "name": "Gawr Gura Ch. hololive-EN",
-    "english_name": "Gawr Gura",
-    "type": "vtuber",
-    "org": "Hololive",
-    "group": "English -Myth-",
-    "photo": "https://yt3.ggpht.com/uMUat6yJL2_Sk6Wg2-yn0fSIqUr_D6aKVNVoWbgeZ8N-edT5QJAusk4PI8nmPgT_DxFDTyl8=s800-c-k-c0x00ffffff-no-rj",
-    "twitter": "gawrgura",
-    "video_count": "474",
-    "subscriber_count": "4320000",
-    "clip_count": 19966,
-    "top_topics": [
-      "minecraft",
-      "membersonly",
-      "singing"
-    ],
-    "inactive": false,
-    "twitch": "gawrgura"
+  const [talents, setTalents] = useState<Talent[] | null>(null)
+
+
+  async function asd(){
+    const url = 'https://holodex.net/api/v2/channels?type=vtuber';
+    const options = {
+      method: 'GET',
+      headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      setTalents(data)
+    } catch (error) {
+      console.error(error);
+}
   }
+  asd()
 
   return ( 
-    <div className="body">
-      <TalentCard {...gura}/>
-    </div>
+    <>
+    { talents &&
+      <div className="body">
+        {talents?.map((talent) => (
+          <TalentCard {...talent}></TalentCard>
+        ))}
+      </div>
+    }
+    </>
    );
 }
  
