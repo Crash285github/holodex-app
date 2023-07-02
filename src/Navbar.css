@@ -158,7 +158,7 @@
   transition: 200ms;
 }
 
-.links a:hover{
+.links:not(:has(input:focus)) a:hover{
   background-color: #f477a6;
   color: white;
 }

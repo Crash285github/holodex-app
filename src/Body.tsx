@@ -8,7 +8,7 @@ const Body = () => {
 
 
   async function asd(){
-    const url = 'https://holodex.net/api/v2/channels?type=vtuber';
+    const url = 'https://holodex.net/api/v2/channels?type=vtuber&org=Hololive';
     const options = {
       method: 'GET',
       headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
@@ -22,7 +22,6 @@ const Body = () => {
       console.error(error);
 }
   }
-  asd()
 
   return ( 
     <>
