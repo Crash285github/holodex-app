@@ -7,21 +7,21 @@ const Body = () => {
   const [talents, setTalents] = useState<Talent[] | null>(null)
 
 
-  async function asd(){
-    const url = 'https://holodex.net/api/v2/channels?type=vtuber&org=Hololive';
-    const options = {
-      method: 'GET',
-      headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
-    };
+//   async function asd(){
+//     const url = 'https://holodex.net/api/v2/channels?type=vtuber&org=Hololive';
+//     const options = {
+//       method: 'GET',
+//       headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
+//     };
 
-    try {
-      const response = await fetch(url, options);
-      const data = await response.json();
-      setTalents(data)
-    } catch (error) {
-      console.error(error);
-}
-  }
+//     try {
+//       const response = await fetch(url, options);
+//       const data = await response.json();
+//       setTalents(data)
+//     } catch (error) {
+//       console.error(error);
+// }
+//   }
 
   return ( 
     <>
