@@ -1,4 +1,5 @@
 import Background from "./Background";
+import Body from "./Body";
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -10,7 +11,7 @@ function App() {
         <Background/>
         <div className="content">
           <Routes>
-            <Route path="/"/>
+            <Route path="/" element={<Body></Body>}/>
           </Routes>
         </div>
       </div>

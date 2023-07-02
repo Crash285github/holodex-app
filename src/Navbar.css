@@ -1,5 +1,4 @@
 .navbar{
-  width: fit-content;
   margin: 10px auto;
   box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
   border-radius: 10px;
@@ -40,6 +39,9 @@
 
   gap: 10px;
   padding: 5px 0;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* #region Searchbar*/
