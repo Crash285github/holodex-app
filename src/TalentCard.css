@@ -1,0 +1,130 @@
+.talent-card{
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+  align-items: center;
+
+
+  padding: 5px;
+  margin: auto;
+
+  background-color: white;
+
+  border-radius: 10px;
+
+  transition: 200ms;
+
+  box-shadow: 2px 2px 2px #4d9fee;
+
+
+}
+
+.talent-card:hover{
+  box-shadow: 2px 2px 2px #f477a6;
+}
+
+
+.talent-card .profile img{
+  height: 100px;
+
+  border-radius: 100%;
+
+  position: relative;
+
+
+}
+
+.talent-card .profile .image-container{
+  border-radius: 100%;
+  border: 5px solid #4d9fee;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  transition: 200ms;
+}
+
+.talent-card .profile .image-container:hover{
+  border: 5px solid #f477a6;
+}
+
+.talent-card .profile .default{
+  filter: grayscale(80%) contrast(30%) brightness(160%) blur(1px);
+}
+
+.talent-card .information{
+  display: grid;
+  grid-template-columns: auto auto 0 1fr auto;
+  gap: 5px 30px ;
+  width: 100%;
+}
+
+.talent-card .information *{
+  height: fit-content;
+  white-space: nowrap;
+}
+
+.talent-card .information .name-and-group{
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  padding-right: 15px;
+  border-bottom: #4d9fee 2px solid;
+
+  transition: 200ms;
+}
+
+.talent-card:has(.profile img:hover) .information .name-and-group{
+  border-bottom: #f477a6 2px solid;
+}
+
+.talent-card .information .subs{
+  grid-row: 2;
+  margin-left: 10px;
+}
+
+.talent-card .information .videos{
+  grid-row: 2;
+}
+
+.talent-card .information .twitter,
+.talent-card .information .twitch{
+  display: flex;
+  align-items: center;
+
+  justify-self: end;
+
+  font-weight: 900;
+  text-decoration: none;
+  color:#4d9fee;
+  cursor: pointer;
+
+  transition: 200ms;
+}
+
+.talent-card .information .twitter:hover,
+.talent-card .information .twitch:hover{
+  color: #f477a6;
+}
+
+
+.talent-card .information .twitter img,
+.talent-card .information .twitch img{
+  height: 20px;
+}
+
+.talent-card .information .twitter{
+  grid-row: 1;
+  grid-column: 5;
+}
+
+.talent-card .information .twitch{
+  grid-row: 2;
+  grid-column: 5;
+}
+
+.talent-card .information .hot-topics{
+  grid-row: 3;
+}
