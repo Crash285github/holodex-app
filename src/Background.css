@@ -1,0 +1,30 @@
+.background{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  opacity: 0.2;
+
+  user-select: none;
+  pointer-events: none;
+
+  z-index: 5;
+
+}
+
+.background img{
+  width: min(30vw, 50vh);
+
+  animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}

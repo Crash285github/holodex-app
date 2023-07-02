@@ -1,3 +1,4 @@
+import Background from "./Background";
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -6,6 +7,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar/>
+        <Background/>
         <div className="content">
           <Routes>
             <Route path="/"/>
