@@ -1,6 +1,6 @@
-import Background from "./Background";
-import Body from "./Body";
-import Navbar from "./Navbar";
+import Background from "./Components/Background/Background";
+import Body from "./Components/Body/Body";
+import Navbar from "./Components/Navbar/Navbar";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
