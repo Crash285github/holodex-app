@@ -19,6 +19,8 @@
   overflow: hidden;
 
   width: 90%;
+
+  cursor: pointer;
 }
 
 @media screen and (width < 500px) {
@@ -74,6 +76,12 @@
   flex-direction: column;
   width: 60%;
   position: relative;
+
+  
+  text-decoration: none;
+  color: black;
+
+  z-index: 10;
 }
 
 .talent-card .details .name-and-group{
@@ -130,6 +138,8 @@
   text-overflow: ellipsis;
   overflow: hidden;
   
+
+  z-index: 10;
 }
 
 .talent-card .socials .twitch,

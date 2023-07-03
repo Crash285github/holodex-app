@@ -2,14 +2,20 @@ import './TalentCard.css'
 import twitter_logo from './twitter-logo.png'
 import twitch_logo from './twitch-logo.png'
 import default_photo from './default_photo.png'
+import { Link } from 'react-router-dom';
 
 export interface Talent{
   id: string;
   name: string;
+  description?: string;
   photo?: string;
+  banner?: string;
   subscriber_count: string;
-  group: string;
   video_count?: string;
+  view_count?: string;
+  clip_count?: string;
+  inactive?: boolean;
+  group: string;
   twitch?: string;
   twitter?: string;
   top_topics: string[];
@@ -27,7 +33,7 @@ const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, 
         </div>
       </a>
 
-      <div className="details">
+      <Link to={`/holodex-app/talent/`+id} className="details">
         <div className="name-and-group" title={name}>
           {name + " [" + group + "]"}
         </div>
@@ -39,7 +45,7 @@ const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, 
         <div className="topics">
           {top_topics?.join(", ")}
         </div>
-      </div>
+      </Link>
 
       <div className="socials">
         {twitch && (

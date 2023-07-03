@@ -1,0 +1,29 @@
+.talent-details-container{
+  max-width: 1300px;
+  
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+
+  border-radius: 10px;
+
+  box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
+
+}
+
+.talent-details-container .banner img{
+  z-index: 10;
+  object-fit: cover;
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+
+}
+
+.talent-details-container .banner{
+  margin: 20px auto;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+
+}
