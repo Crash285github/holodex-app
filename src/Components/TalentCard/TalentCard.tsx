@@ -7,7 +7,7 @@ export interface Talent{
   id: string;
   name: string;
   photo?: string;
-  subscriber_count?: string;
+  subscriber_count: string;
   group: string;
   video_count?: string;
   twitch?: string;
@@ -33,7 +33,7 @@ const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, 
         </div>
 
         <div className="subs">
-          {subscriber_count + " subscribers"}
+          {(+subscriber_count).toLocaleString() + " subscribers"}
         </div>
 
         <div className="topics">

@@ -48,6 +48,7 @@
 .talent-card .profile-image .image-container{
   border-radius: 100%;
   border: 5px solid #4d9fee;
+  width: 110px;
 
   box-sizing: border-box;
 
@@ -117,7 +118,6 @@
   overflow: hidden;
 }
 /* #endregion */
-
 
 /* #region socials */
 .talent-card .socials{
