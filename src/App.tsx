@@ -11,7 +11,7 @@ function App() {
         <Background/>
         <div className="content">
           <Routes>
-            <Route path="/" element={<Body></Body>}/>
+            <Route path="/holodex-app" element={<Body></Body>}/>
           </Routes>
         </div>
       </div>

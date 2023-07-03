@@ -16,7 +16,7 @@ const Navbar = () => {
           <button>Search talents</button>
         </div>
         <div className="links">
-          <Link to='/'>Homepage</Link>
+          <Link to='/holodex-app'>Homepage</Link>
         </div>
       </nav>
     </div>

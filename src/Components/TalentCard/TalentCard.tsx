@@ -15,44 +15,42 @@ export interface Talent{
   top_topics: string[];
 }
 
-const TalentCard = (talent : Talent) => {
+const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, top_topics} : Talent) => {
 
   return ( 
     <div className="talent-card">
 
-      <a href={"https://www.youtube.com/channel/" + talent.id} className="profile-image">
+      <a href={"https://www.youtube.com/channel/" + id} className="profile-image" title={name}>
         <div className="image-container">
-          {talent.photo && <img src={talent.photo} alt={talent.name+'\'s photo'} /> }
-          {!talent.photo && <img src={default_photo} alt={talent.name+'\'s photo'} className='default'/> }
+          {photo && <img src={photo} alt={name+'\'s photo'} /> }
+          {!photo && <img src={default_photo} alt={name+'\'s photo'} className='default'/> }
         </div>
       </a>
 
       <div className="details">
-        <div className="name-and-group">
-          {talent.name + " [" + talent.group + "]"}
+        <div className="name-and-group" title={name}>
+          {name + " [" + group + "]"}
         </div>
 
         <div className="subs">
-          {talent.subscriber_count + " subscribers"}
+          {subscriber_count + " subscribers"}
         </div>
 
         <div className="topics">
-          {talent.top_topics.join(", ")}
+          {top_topics?.join(", ")}
         </div>
       </div>
 
       <div className="socials">
-        {talent.twitch && (
-          <a href={'https://www.twitch.tv/' + talent.twitch} className="twitch">
+        {twitch && (
+          <a href={'https://www.twitch.tv/' + twitch} className="twitch" title={twitch}>
             <img src={twitch_logo} alt="twitch logo" />
-            {talent.twitch}
           </a>
         )}
 
-      {talent.twitter && (
-          <a href={'https://twitter.com/' + talent.twitter} className="twitter">
+      {twitter && (
+          <a href={'https://twitter.com/' + twitter} className="twitter" title={twitter}>
             <img src={twitter_logo} alt="twitter logo" />
-            {talent.twitter}
           </a>
         )}
       </div>

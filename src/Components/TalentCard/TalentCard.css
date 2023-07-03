@@ -1,5 +1,8 @@
 .talent-card{
   display: flex;
+
+  flex-direction: row;
+
   align-items: center;
 
   gap: 10px;
@@ -14,6 +17,16 @@
 
   transition: 200ms;
   overflow: hidden;
+
+  width: 90%;
+}
+
+@media screen and (width < 500px) {
+  .talent-card{
+    gap: 5px;
+    box-shadow: 2px 2px 2px #4d9fee;
+    flex-direction: column;
+  }
 }
 
 .talent-card:hover{
@@ -24,6 +37,8 @@
 /* #region profile-image */
 .talent-card .profile-image img{
   height: 100px;
+
+  z-index: 10;
 
   border-radius: 100%;
 
@@ -56,6 +71,8 @@
 .talent-card .details{
   display: flex;
   flex-direction: column;
+  width: 60%;
+  position: relative;
 }
 
 .talent-card .details .name-and-group{
@@ -65,6 +82,28 @@
   font-weight: 900;
 
   transition: 200ms;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+@media screen and (width < 500px){
+  .talent-card .details{
+    width: fit-content;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .talent-card .details .subs,
+  .talent-card .details .topics{
+    display: none;
+  }
+
+  .talent-card .details .name-and-group{
+    padding: 0 15px;
+  }
 }
 
 .talent-card:has(.profile-image .image-container:hover) .details .name-and-group{
@@ -87,6 +126,10 @@
   flex-direction: column;
   align-self: flex-end;
   gap: 10px;
+  
+  text-overflow: ellipsis;
+  overflow: hidden;
+  
 }
 
 .talent-card .socials .twitch,
@@ -96,8 +139,15 @@
 
 .talent-card .socials .twitch img,
 .talent-card .socials .twitter img{
-  height: 30px;
   align-self: center;
+}
+
+.talent-card .socials .twitch img{
+  height: 25px;
+}
+
+.talent-card .socials .twitter img{
+  height: 25px;
 }
 
 .talent-card .socials a{
@@ -119,6 +169,13 @@
 }
 
 
+@media screen and (width < 500px) {
+  .talent-card .socials{
+    flex-direction: row;
+    align-self: center;
+    margin-left: 0;
+  }
+}
 
 
 /* #endregion */

@@ -9,7 +9,7 @@ const Body = () => {
 
   const {data, isPending, error} = useFetch(
     {
-      url: 'https://holodex.net/api/v2/channels?type=vtuber&org=Hololive', 
+      url: 'https://holodex.net/api/v2/channels?type=vtuber&org=Hololive&offset=67', 
       options: {
         method: 'GET',
         headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
@@ -23,11 +23,11 @@ const Body = () => {
   return ( 
     <>
     { isPending && 
-      <div>Loading...</div>
+      <div className='loading'>Loading...</div>
     }
 
     { error && 
-      <div>Error: {error}</div>
+      <div className='error'>Error: {error}</div>
     }
 
     { talents &&

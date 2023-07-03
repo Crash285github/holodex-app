@@ -4,4 +4,17 @@
   box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
   border-radius: 10px;
   padding: 10px;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
+
+.loading, .error{
+  font-size: 50px;
+  color: #27c7ff;
+  text-align: center;
+  line-height: 50vh;
+}
+
+.error{
+  color: red;
 }
