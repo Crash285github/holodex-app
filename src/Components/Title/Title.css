@@ -1,4 +1,4 @@
-.title{
+.App .title{
   margin: 10px auto;
   max-width: 1300px;
 
@@ -16,7 +16,7 @@
   transition: 200ms;
 }
 
-.title:hover{
+.App .title:hover{
   color: white;
   background-color: #27c7ff;
 }

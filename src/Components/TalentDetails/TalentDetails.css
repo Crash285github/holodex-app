@@ -3,27 +3,154 @@
   
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 10px auto;
 
   border-radius: 10px;
 
   box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
-
 }
 
+/* #region banner*/
 .talent-details-container .banner img{
   z-index: 10;
   object-fit: cover;
-  height: 150px;
-  width: 100%;
   border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 6/1;
 
 }
 
 .talent-details-container .banner{
   margin: 20px auto;
-  width: 70%;
+  padding: 0 10px;
   display: flex;
   justify-content: center;
+}
+
+/* #endregion */
+
+/* #region details*/
+
+.talent-details-container .main{
+  display: flex;
+  width: 70%;
+  position: relative;
+}
+
+.talent-details-container .main .details{
+  width: calc(100% - 105px);
+  margin-left: -5px;
+}
+
+.talent-details-container .main .details .name{
+  border-bottom: #4d9fee 3px solid;
+  font-size: 30px;
+  font-weight: 900;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  transition: 200ms;
 
 }
+
+.talent-details-container .main:has(.image-container:hover) .details .name{
+  border-bottom: #f477a6 3px solid;
+
+}
+
+.talent-details-container .main .details .desc{
+  text-align: justify;
+  margin: 5px 10px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (width < 400px){
+  .talent-details-container .main .details .desc{
+    line-break: anywhere;
+  }
+}
+
+/* #endregion */
+
+/* #region numbers*/
+
+.talent-details-container .numbers{
+  border-top: #4d9fee 3px solid;
+  width: 60%;
+  margin-left: 100px;
+  margin-bottom: 100px;
+  width: calc(70% - 100px);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+.talent-details-container .numbers .subs,
+.talent-details-container .numbers .videos,
+.talent-details-container .numbers .views,
+.talent-details-container .numbers .clips{
+  margin: auto;
+  font-size: 25px;
+}
+
+
+.talent-details-container .numbers .subs { 
+  grid-area: 1 / 1 / 2 / 2; 
+}
+
+.talent-details-container .numbers .videos { 
+  grid-area: 1 / 2 / 2 / 3; 
+}
+
+.talent-details-container .numbers .views { 
+  grid-area: 1 / 3 / 2 / 4; 
+}
+
+.talent-details-container .numbers .clips { 
+  grid-area: 2 / 1 / 3 / 4; 
+  font-size: 20px;
+}
+
+/* #endregion */
+
+/* #region profile pic */
+
+.talent-details-container .main .image-container img{
+  height: 100px;
+
+  z-index: 10;
+
+  border-radius: 100%;
+
+  position: relative;
+}
+
+.talent-details-container .main .image-container{
+  border-radius: 100%;
+  border: 5px solid #4d9fee;
+  width: 110px;
+  height: 110px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: start;
+
+  transition: 200ms;
+}
+
+.talent-details-container .main .image-container:hover{
+  border: 5px solid #f477a6;
+}
+
+.talent-details-container .main .default{
+  filter: grayscale(80%) contrast(30%) brightness(160%) blur(1px);
+}
+/* #endregion */
+

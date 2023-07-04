@@ -1,7 +1,7 @@
 import './TalentCard.css'
 import twitter_logo from './twitter-logo.png'
 import twitch_logo from './twitch-logo.png'
-import default_photo from './default_photo.png'
+import default_photo from '../default_photo.png'
 import { Link } from 'react-router-dom';
 
 export interface Talent{
@@ -39,7 +39,7 @@ const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, 
         </div>
 
         <div className="subs">
-          {(+subscriber_count).toLocaleString() + " subscribers"}
+          {(+subscriber_count).toLocaleString('da-DK') + " subscribers"}
         </div>
 
         <div className="topics">

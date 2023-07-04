@@ -22,22 +22,22 @@ const Body = () => {
   return ( 
     <>
       <div className="talent-list">
-      { isPending && 
-      <div className='loading'>Loading...</div>
-      }
+        { isPending && 
+        <div className='loading'>Loading...</div>
+        }
 
-      { error && 
-        <div className='error'>Error: {error}</div>
-      }
+        { error && 
+          <div className='error'>Error: {error}</div>
+        }
 
-      { talents &&
-        <div className="body">
-          {talents?.map((talent) => (
-            <TalentCard {...talent} key={talent.id}></TalentCard>
-          ))}
-        </div>
-      }
-    </div>
+        { talents &&
+          <div className="body">
+            {talents?.map((talent) => (
+              <TalentCard {...talent} key={talent.id}></TalentCard>
+            ))}
+          </div>
+        }
+      </div>
       
     </>
    );

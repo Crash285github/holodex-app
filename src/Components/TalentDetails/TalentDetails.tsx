@@ -3,13 +3,15 @@ import useFetch from "../../useFetch";
 import { useEffect, useState } from "react";
 import { Talent } from "../TalentCard/TalentCard";
 import './TalentDetails.css'
+import default_photo from '../default_photo.png'
+import Streams from "../Streams/Streams";
 
 const TalentDetails = () => {
   const { id } = useParams()
 
   const [talent, setTalent] = useState<Talent>()
 
-  const {data, isPending, error} = useFetch(
+  const {data: talentData, isPending: talentIsPending, error: talentError} = useFetch(
     {
       url: 'https://holodex.net/api/v2/channels/' + id,
       options: {
@@ -19,17 +21,17 @@ const TalentDetails = () => {
     })
 
     useEffect(() => {
-      setTalent(data)  
-    },[data])
+      setTalent(talentData)  
+    },[talentData])
 
   return ( 
     <>
-      { isPending && 
-      <div className='loading'>Loading...</div>
+      { talentIsPending && 
+        <div className='loading'>Loading...</div>
       }
 
-      { error && 
-        <div className='error'>Error: {error}</div>
+      { talentError && 
+        <div className='error'>Error: {talentError}</div>
       }
 
       {talent && 
@@ -39,6 +41,39 @@ const TalentDetails = () => {
             <img src={talent?.banner} alt="banner" />
           </div>
 
+          <div className="main">
+
+            <div className="image-container">
+              {talent.photo && 
+                <img src={talent.photo} alt="profile" />}
+              {!talent.photo && 
+                <img src={default_photo} alt={talent.name+'\'s photo'} className='default'/> }
+            </div>
+
+            <div className="details">
+              <div className="name">{talent.name}</div>
+              <div className="desc">{talent.description}</div>
+            </div>
+
+          </div>
+
+          <div className="numbers">
+            <div className="subs">{
+              (+talent.subscriber_count).toLocaleString('da-DK') + " subs"
+            }
+            </div>
+            <div className="videos">{talent.video_count &&
+            (+talent.video_count).toLocaleString('da-DK') + " videos"
+            }</div>
+            <div className="views">{talent.view_count &&
+            (+talent.view_count).toLocaleString('da-DK') + " views"
+            }</div>
+            <div className="clips">{talent.clip_count &&
+            "("+(+talent.clip_count).toLocaleString('da-DK') + " clips)"
+            }</div>
+          </div>
+
+          <Streams {...talent}/>
           
         </div>
       }
