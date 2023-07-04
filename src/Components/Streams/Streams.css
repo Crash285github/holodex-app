@@ -11,6 +11,7 @@
   font-size: 50px;
   font-weight: 900;
   text-decoration: underline;
+  text-align: center;
 
   display: flex;
   flex-direction: column;
@@ -63,6 +64,8 @@
   z-index: 10;
 
   aspect-ratio: 16/9;
+
+  width: 100%;
 }
 
 .streams .videosContainer .videos iframe:has(.ytp-error){

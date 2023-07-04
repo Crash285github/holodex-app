@@ -65,11 +65,11 @@ const TalentDetails = () => {
             <div className="videos">{talent.video_count &&
             (+talent.video_count).toLocaleString('da-DK') + " videos"
             }</div>
-            <div className="views">{talent.view_count &&
-            (+talent.view_count).toLocaleString('da-DK') + " views"
-            }</div>
             <div className="clips">{talent.clip_count &&
             "("+(+talent.clip_count).toLocaleString('da-DK') + " clips)"
+            }</div>
+            <div className="views">{talent.view_count &&
+            (+talent.view_count).toLocaleString('da-DK') + " views"
             }</div>
           </div>
 
