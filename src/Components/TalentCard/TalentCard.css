@@ -51,8 +51,9 @@
   border-radius: 100%;
   border: 5px solid #4d9fee;
   width: 110px;
-
+  
   box-sizing: border-box;
+
 
   display: flex;
   align-items: center;
@@ -69,7 +70,6 @@
 }
 /* #endregion */
 
-
 /* #region details */
 .talent-card .details{
   display: flex;
@@ -81,12 +81,14 @@
   text-decoration: none;
   color: black;
 
-  z-index: 10;
+  z-index: 0;
 }
 
 .talent-card .details .name-and-group{
-  border-bottom: #4d9fee 2px solid;
+  border-bottom: #4d9fee 3px solid;
   padding-right: 15px;
+  margin-left: -15px;
+  padding-left: 10px;
 
   font-weight: 900;
 
@@ -116,7 +118,7 @@
 }
 
 .talent-card:has(.profile-image .image-container:hover) .details .name-and-group{
-  border-bottom: #f477a6 2px solid;
+  border-bottom: #f477a6 3px solid;
 }
 
 .talent-card .details .subs{

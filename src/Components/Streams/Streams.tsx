@@ -135,7 +135,7 @@ const Streams = ({id, top_topics} : Talent) => {
         <div className="videosContainer">
           <div className="text">From this topic: {top_topics[2]}</div>
           <div className="videos">
-            {topic3Lives.map(live =>
+            {topic3Lives.map(live => live.topic_id !== 'membersonly' &&
               <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen/>
             )}
           </div>

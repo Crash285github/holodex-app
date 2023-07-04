@@ -43,12 +43,12 @@ const TalentDetails = () => {
 
           <div className="main">
 
-            <div className="image-container">
-              {talent.photo && 
-                <img src={talent.photo} alt="profile" />}
-              {!talent.photo && 
-                <img src={default_photo} alt={talent.name+'\'s photo'} className='default'/> }
-            </div>
+            <a href={"https://www.youtube.com/channel/" + id} className="profile-image" title={talent.name}>
+              <div className="image-container">
+                {talent.photo && <img src={talent.photo} alt="profile" />}
+                {!talent.photo && <img src={default_photo} alt={talent.name+'\'s photo'} className='default'/> }
+              </div>
+            </a>
 
             <div className="details">
               <div className="name">{talent.name}</div>
