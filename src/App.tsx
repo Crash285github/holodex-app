@@ -1,5 +1,6 @@
 import Background from "./Components/Background/Background";
 import Body from "./Components/Body/Body";
+import NotFound from "./Components/NotFound/NotFound";
 import TalentDetails from "./Components/TalentDetails/TalentDetails";
 import Title from "./Components/Title/Title";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/holodex-app" element={<Body></Body>}/>
             <Route path="/holodex-app/talent/:id" element={<TalentDetails></TalentDetails>}/>
+            <Route path="/*" element={<NotFound></NotFound>}/>
           </Routes>
         </div>
       </div>

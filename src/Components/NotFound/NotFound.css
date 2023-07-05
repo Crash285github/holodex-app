@@ -1,0 +1,47 @@
+.notfound{
+  margin: 5% auto;
+
+
+  text-align: center;
+  font-size: 50px;
+  font-weight: 900;
+  color: red;
+
+  position: relative;
+
+}
+
+.notfound .image{
+  width: fit-content;
+  position: relative;
+
+  left: 50%;
+  padding: 10px;
+
+  transform: translateX(-50%);
+}
+
+.notfound .image img{
+  height: 300px;
+}
+
+.notfound a{
+  position: relative;
+
+  margin: auto;
+  background: #27c7ff;
+  color: black;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+
+  transition: 200ms;
+
+  z-index: 10;
+}
+
+.notfound a:hover{
+  background-color: #f477a6;
+
+}
