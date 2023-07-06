@@ -9,7 +9,6 @@ const Body = () => {
   const [talents, setTalents] = useState<Talent[]>()
   const [offset, setOffset] = useState(10)
   const [canLoad, setCanLoad] = useState(true)
-  const [newTalentsPending, setNewTalentsPending] = useState(false)
 
   const {data} = useFetch(
     {
@@ -27,7 +26,6 @@ const Body = () => {
   const steps = 10
 
   const handleClick = () => {
-    setNewTalentsPending(true)
     const params = {
       url: 'https://holodex.net/api/v2/channels?type=vtuber&limit='+steps+'&org=Hololive&offset=' + offset,
       options: {
@@ -49,7 +47,6 @@ const Body = () => {
         newTalents?.push(...data)
         setTalents(newTalents)
         setOffset(offset + steps)
-        setNewTalentsPending(false)
 
         if(data.length < steps){
           setCanLoad(false)
