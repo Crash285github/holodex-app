@@ -94,7 +94,7 @@ const Streams = ({id, top_topics} : Talent) => {
       {currentLive &&
         <div className="live">
           Currently Live!
-          <iframe src={"https://www.youtube.com/embed/" + currentLive.id} title="live" allowFullScreen/>
+          <iframe src={"https://www.youtube.com/embed/" + currentLive.id} title="live" allowFullScreen key={currentLive.id}/>
         </div>
       }
 
@@ -103,7 +103,7 @@ const Streams = ({id, top_topics} : Talent) => {
           <div className="text">Past livestreams & videos:</div>
           <div className="videos">
             {pastLives.map(live => live.topic_id !== 'membersonly' &&
-              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen/>
+              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen key={live.id}/>
             )}
           </div>
         </div>
@@ -114,7 +114,7 @@ const Streams = ({id, top_topics} : Talent) => {
           <div className="text">From this topic: {top_topics[0]}</div>
           <div className="videos">
             {topic1Lives.map(live => live.topic_id !== 'membersonly' &&
-              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen/>
+              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen key={live.id}/>
             )}
           </div>
         </div>
@@ -125,7 +125,7 @@ const Streams = ({id, top_topics} : Talent) => {
           <div className="text">From this topic: {top_topics[1]}</div>
           <div className="videos">
             {topic2Lives.map(live => live.topic_id !== 'membersonly' &&
-              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen/>
+              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen key={live.id}/>
             )}
           </div>
         </div>
@@ -136,7 +136,7 @@ const Streams = ({id, top_topics} : Talent) => {
           <div className="text">From this topic: {top_topics[2]}</div>
           <div className="videos">
             {topic3Lives.map(live => live.topic_id !== 'membersonly' &&
-              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen/>
+              <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen key={live.id}/>
             )}
           </div>
         </div>
