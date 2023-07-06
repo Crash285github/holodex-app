@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { Talent } from "../TalentCard/TalentCard";
 import './TalentDetails.css'
 import default_photo from '../default_photo.png'
-import Streams from "../Streams/Streams";
+import StreamsList from "./StreamsList/StreamsList";
+import CurrentLive from "./CurrentLive/CurrentLive";
 
 const TalentDetails = () => {
   const { id } = useParams()
@@ -73,7 +74,28 @@ const TalentDetails = () => {
             }</div>
           </div>
 
-          <Streams {...talent}/>
+          <CurrentLive id={id+""}/>
+
+          <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past'}
+                        title={'Most recent livestreams & videos:'}/>
+
+          { 
+            talent.top_topics[0] !== 'membersonly' &&
+            <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past&topic=' + talent.top_topics[0]}
+              title={'From this topic: '+ talent.top_topics[0]}/>
+          }
+
+          { 
+            talent.top_topics[1] !== 'membersonly' &&
+            <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past&topic=' + talent.top_topics[1]}
+              title={'From this topic: '+ talent.top_topics[1]}/>
+          }
+
+          { 
+            talent.top_topics[2] !== 'membersonly' &&
+            <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past&topic=' + talent.top_topics[2]}
+              title={'From this topic: '+ talent.top_topics[2]}/>
+          }
           
         </div>
       }
