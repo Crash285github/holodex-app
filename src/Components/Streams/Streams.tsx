@@ -20,7 +20,7 @@ const Streams = ({id, top_topics} : Talent) => {
   // #region currentLive fetch
   const {data: currentData} = useFetch(
     {
-      url: 'https://holodex.net/api/v2/live?channel_id=' + id +'&limit=1',
+      url: 'https://holodex.net/api/v2/live?channel_id=' + id +'&limit=1&status=live',
       options: {
         method: 'GET',
         headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
