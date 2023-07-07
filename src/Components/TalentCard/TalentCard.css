@@ -1,62 +1,58 @@
 .talent-card{
   display: flex;
-
   flex-direction: row;
-
   align-items: center;
-
   gap: 10px;
+  
+  width: 90%;
+
+  background: white;
+
   font-size: 20px;
 
   padding: 5px;
   margin: 10px auto;
-
-  background: white;
-
   border-radius: 10px;
 
-  transition: 200ms;
   overflow: hidden;
-
-  width: 90%;
-
+  
   cursor: pointer;
+
+  transition: 200ms;
 }
 
 @media screen and (width < 500px) {
   .talent-card{
-    gap: 5px;
-    box-shadow: 2px 2px 2px #4d9fee;
     flex-direction: column;
+    gap: 5px;
+
+    box-shadow: 2px 2px 2px #4d9fee;
   }
 }
 
 .talent-card:hover{
-  box-shadow: 2px 2px 2px #f477a6;
   background: #27c7ff;
+  box-shadow: 2px 2px 2px #f477a6;
 }
 
 /* #region profile-image */
 .talent-card .profile-image img{
+  position: relative;
   height: 100px;
 
-  z-index: 10;
-
   border-radius: 100%;
-
-  position: relative;
+  z-index: 10;
 }
 
 .talent-card .profile-image .image-container{
-  border-radius: 100%;
-  border: 5px solid #4d9fee;
-  width: 110px;
-  
-  box-sizing: border-box;
-
-
   display: flex;
   align-items: center;
+
+  border: 5px solid #4d9fee;
+  border-radius: 100%;
+
+  width: fit-content;
+  box-sizing: border-box;
 
   transition: 200ms;
 }
@@ -68,36 +64,47 @@
 .talent-card .profile-image .default{
   filter: grayscale(80%) contrast(30%) brightness(160%) blur(1px);
 }
+
+@media screen and (width < 500px){
+  .talent-card .profile-image img{
+    height: 75px;
+  }
+}
 /* #endregion */
 
 /* #region details */
 .talent-card .details{
-  display: flex;
-  flex-direction: column;
-  width: 60%;
   position: relative;
 
+  display: flex;
+  flex-direction: column;
+
+  width: 60%;
   
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 
   z-index: 0;
 }
 
 .talent-card .details .name-and-group{
   border-bottom: #4d9fee 3px solid;
+
+  margin-left: -30px;
   padding-right: 15px;
-  margin-left: -15px;
-  padding-left: 10px;
+  padding-left: 30px;
 
   font-weight: 900;
-
-  transition: 200ms;
-
   white-space: nowrap;
   overflow: hidden;
-
   text-overflow: ellipsis;
+  
+  transition: 200ms;
+}
+
+.talent-card:has(.details .name-and-group:hover) .profile-image .image-container,
+.talent-card .details .name-and-group:hover{
+  border-color: #f477a6;
 }
 
 @media screen and (width < 500px){
@@ -113,8 +120,8 @@
   }
 
   .talent-card .details .name-and-group{
-    padding: 0 15px;
     margin: 0;
+    padding: 0 15px;
   }
 }
 
@@ -124,23 +131,23 @@
 
 .talent-card .details .subs{
   margin-left: 5px;
-  white-space: nowrap;
 
+  white-space: nowrap;
   overflow: hidden;
 }
 /* #endregion */
 
 /* #region socials */
 .talent-card .socials{
-  margin-left: auto;
   display: flex;
   flex-direction: column;
   align-self: flex-end;
   gap: 10px;
   
+  margin-left: auto;
+
   text-overflow: ellipsis;
   overflow: hidden;
-  
 
   z-index: 10;
 }
@@ -164,13 +171,13 @@
 }
 
 .talent-card .socials a{
+  align-self: flex-end;
+
   text-decoration: none;
   color: #4d9fee;
   font-weight: 900;
 
   transition: 200ms;
-
-  align-self: flex-end;
 }
 
 .talent-card .socials a:hover{
@@ -181,14 +188,16 @@
   color: white;
 }
 
-
 @media screen and (width < 500px) {
   .talent-card .socials{
     flex-direction: row;
     align-self: center;
+    justify-content: space-around;
+
     margin-left: 0;
+
+    width: 50%;
   }
 }
-
 
 /* #endregion */

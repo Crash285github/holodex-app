@@ -22,7 +22,7 @@
 }
 
 .notfound .image img{
-  height: 300px;
+  width: min(100%, 300px);
 }
 
 .notfound a{

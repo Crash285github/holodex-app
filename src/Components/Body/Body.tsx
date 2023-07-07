@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import './Body.css'
 import useFetch from '../../useFetch';
 import TalentCard, { Talent } from '../TalentCard/TalentCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import './Body.css';
 
 const Body = () => {
 
   const [talents, setTalents] = useState<Talent[]>()
   const [offset, setOffset] = useState(10)
-  const [canLoad, setCanLoad] = useState(true)
+  const [canLoadMore, setCanLoadMore] = useState(true)
 
   const {data} = useFetch(
     {
@@ -19,13 +19,12 @@ const Body = () => {
       }
     })
 
-    useEffect(() => {
-      setTalents(data)  
-    },[data])
+  useEffect(() => {
+    setTalents(data)  
+  },[data])
 
   const steps = 10
-
-  const handleClick = () => {
+  const handleScrollLoad = () => {
     const params = {
       url: 'https://holodex.net/api/v2/channels?type=vtuber&limit='+steps+'&org=Hololive&offset=' + offset,
       options: {
@@ -49,15 +48,17 @@ const Body = () => {
         setOffset(offset + steps)
 
         if(data.length < steps){
-          setCanLoad(false)
+          setCanLoadMore(false)
         }
       })
       .catch(err => {
         if(err.name === 'AbortError'){
             console.log("fetch aborted");
         }
+        else {
+          console.log(err.message);
+        }        
     })
-    
   }
   
   return ( 
@@ -65,15 +66,15 @@ const Body = () => {
       <div className="body">
         <InfiniteScroll 
           dataLength={talents ? talents.length : 0}
-          next={handleClick}
-          hasMore={canLoad}
+          next={handleScrollLoad}
+          hasMore={canLoadMore}
           loader={<div className='loading'>Loading...</div>}
-        >
+          >
+
           <div className="talent-list">
-            {talents?.map((talent) => (
-              <TalentCard {...talent} key={talent.id}></TalentCard>
-              ))}
+            { talents?.map((talent) => ( <TalentCard {...talent} key={talent.id}/> )) }
           </div>
+
         </InfiniteScroll>
       </div>     
     </>

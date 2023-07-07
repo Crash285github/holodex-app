@@ -5,35 +5,40 @@
 .streams .videosContainer{
   display: flex;
   flex-direction: column;
+
   margin-bottom: 5%;
 }
 
 .streams .videosContainer .text{
   font-size: 25px;
   font-weight: 900;
+
   border-bottom: #4d9fee 3px solid;
   margin-bottom: 5px;
 }
 
 .streams .videosContainer .videos{
-  overflow-x: scroll;
   display:flex;
   flex-direction: row;
-  padding: 10px;
   gap: 15px;
-  scroll-behavior: auto;
+
+  overflow-x: scroll;
+
+  padding: 10px;
 }
 
+
 .streams .videosContainer .videos iframe{
+  border: none;
   border-radius: 10px;
   outline: none;
-  border: none;
-  box-shadow: 3px 3px 3px #4d9fee;
-  z-index: 10;
-
-  aspect-ratio: 16/9;
 
   max-width: 100%;
+  aspect-ratio: 16/9;
+
+  box-shadow: 3px 3px 3px #4d9fee;
+
+  z-index: 10;
 }
 
 .streams .videosContainer .videos iframe:has(.ytp-error){

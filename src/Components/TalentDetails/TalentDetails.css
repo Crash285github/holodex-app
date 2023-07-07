@@ -1,31 +1,33 @@
 .talent-details-container{
-  max-width: 1300px;
-  
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px auto;
 
+  margin: 10px auto;
   border-radius: 10px;
 
+  max-width: 1300px;
+  
   box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
 }
 
 /* #region banner*/
 .talent-details-container .banner img{
-  z-index: 10;
-  object-fit: cover;
-  border-radius: 10px;
   width: 100%;
   aspect-ratio: 6/1;
+  object-fit: cover;
 
+  border-radius: 10px;
+  
+  z-index: 10;
 }
 
 .talent-details-container .banner{
-  margin: 20px auto;
-  padding: 0 10px;
   display: flex;
   justify-content: center;
+
+  margin: 20px auto;
+  padding: 0 10px;
 }
 
 /* #endregion */
@@ -33,9 +35,9 @@
 /* #region details*/
 
 .talent-details-container .main{
+  position: relative;
   display: flex;
   width: 70%;
-  position: relative;
 }
 
 .talent-details-container .main .details{
@@ -45,6 +47,7 @@
 
 .talent-details-container .main .details .name{
   border-bottom: #4d9fee 3px solid;
+
   font-size: 30px;
   font-weight: 900;
 
@@ -53,26 +56,28 @@
   overflow: hidden;
 
   transition: 200ms;
+}
 
+.talent-details-container .main .details .name:hover{
+  border-bottom: #f477a6 3px solid;
 }
 
 .talent-details-container .main:has(.image-container:hover) .details .name{
   border-bottom: #f477a6 3px solid;
-
 }
 
 .talent-details-container .main .details .desc{
-  text-align: justify;
   margin: 5px 10px;
-
+  
   overflow: hidden;
+  text-align: justify;
   text-overflow: ellipsis;
 }
 
 @media screen and (width < 400px){
   .talent-details-container .main .details .desc{
-    line-break: anywhere;
     font-size: 10px;
+    line-break: anywhere;
   }
 }
 
@@ -119,17 +124,18 @@
 }
 
 @media screen and (width < 900px) {
-  .talent-details-container .numbers{
-    display: flex;
-    flex-direction: column;
-  }
-
   .talent-details-container .numbers .subs,
   .talent-details-container .numbers .videos,
   .talent-details-container .numbers .views,
   .talent-details-container .numbers .clips{
     font-size: 15px;
-    margin: 0;
+  }
+}
+
+@media screen and (width < 600px) {
+  .talent-details-container .numbers{
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -138,25 +144,25 @@
 /* #region profile pic */
 
 .talent-details-container .main .image-container img{
+  position: relative;
+
   height: 100px;
 
-  z-index: 10;
-
   border-radius: 100%;
-
-  position: relative;
+  
+  z-index: 10;
 }
 
 .talent-details-container .main .image-container{
-  border-radius: 100%;
-  border: 5px solid #4d9fee;
+  display: flex;
+  align-items: flex-start;
+
   width: 110px;
   height: 110px;
 
+  border-radius: 100%;
+  border: 5px solid #4d9fee;
   box-sizing: border-box;
-
-  display: flex;
-  align-items: flex-start;
 
   transition: 200ms;
 }
@@ -165,8 +171,11 @@
   border: 5px solid #f477a6;
 }
 
+.talent-details-container .main:has(.details .name:hover) .image-container{
+  border: 5px solid #f477a6;
+}
+
 .talent-details-container .main .default{
   filter: grayscale(80%) contrast(30%) brightness(160%) blur(1px);
 }
 /* #endregion */
-

@@ -1,9 +1,10 @@
 .background{
+  position: fixed;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -21,7 +22,6 @@
 
 .background img{
   width: min(30vw, 50vh);
-
   animation: rotate 40s linear infinite;
 }
 

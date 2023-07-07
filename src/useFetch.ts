@@ -7,11 +7,10 @@ const useFetch = ({url, options} : {url: string, options: RequestInit}) => {
 
     useEffect(() => {
         const abortController = new AbortController()
+        
         fetch(url, {...options, signal: abortController.signal})
             .then(response => {
-                if(!response.ok){
-                throw Error("Could not fetch data. :(")
-                }
+                if(!response.ok) { throw Error("Could not fetch data. :(") }
                 return response.json()
             })
             .then((data) => {
@@ -20,9 +19,7 @@ const useFetch = ({url, options} : {url: string, options: RequestInit}) => {
                 setError(undefined)
             })
             .catch(err => {
-                if(err.name === 'AbortError'){
-                    console.log("fetch aborted");
-                }
+                if(err.name === 'AbortError') { console.log("fetch aborted") }
                 else{
                     setError(err.message)
                     setIsPending(false)
@@ -30,9 +27,9 @@ const useFetch = ({url, options} : {url: string, options: RequestInit}) => {
             })
 
         return () => abortController.abort()
+        // hack: this warning disabling
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [url])
-
 
     return {data, isPending, error}
 }

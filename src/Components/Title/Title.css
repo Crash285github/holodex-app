@@ -16,6 +16,12 @@
   transition: 200ms;
 }
 
+@media screen and (width < 300px) {
+  .App .title{
+    line-break: anywhere;
+  }
+}
+
 .App .title:hover{
   color: white;
   background-color: #27c7ff;

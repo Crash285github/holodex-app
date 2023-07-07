@@ -7,18 +7,18 @@ import { Link } from 'react-router-dom';
 export interface Talent{
   id: string;
   name: string;
+  group: string;
+  subscriber_count: string;
+  top_topics: string[];
   description?: string;
   photo?: string;
   banner?: string;
-  subscriber_count: string;
   video_count?: string;
   view_count?: string;
   clip_count?: string;
   inactive?: boolean;
-  group: string;
   twitch?: string;
   twitter?: string;
-  top_topics: string[];
 }
 
 const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, top_topics} : Talent) => {
@@ -26,14 +26,14 @@ const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, 
   return ( 
     <div className="talent-card">
 
-      <a href={"https://www.youtube.com/channel/" + id} className="profile-image" title={name}>
+      <a href={"https://www.youtube.com/channel/" + id} className="profile-image" title={name} target='_blank' rel='noreferrer'>
         <div className="image-container">
           {photo && <img src={photo} alt={name+'\'s photo'} /> }
-          {!photo && <img src={default_photo} alt={name+'\'s photo'} className='default'/> }
+          {!photo && <img src={default_photo} alt={"unavailable"} className='default'/> }
         </div>
       </a>
 
-      <Link to={`/holodex-app/talent/`+id} className="details">
+      <Link to={`/holodex-app/talent/`+id} className="details" title='Click for more details!'>
         <div className="name-and-group" title={name}>
           {name + " [" + group + "]"}
         </div>
@@ -49,13 +49,13 @@ const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, 
 
       <div className="socials">
         {twitch && (
-          <a href={'https://www.twitch.tv/' + twitch} className="twitch" title={twitch}>
+          <a href={'https://www.twitch.tv/' + twitch} className="twitch" title={twitch} target='_blank' rel='noreferrer'>
             <img src={twitch_logo} alt="twitch logo" />
           </a>
         )}
 
-      {twitter && (
-          <a href={'https://twitter.com/' + twitter} className="twitter" title={twitter}>
+        {twitter && (
+          <a href={'https://twitter.com/' + twitter} className="twitter" title={twitter} target='_blank' rel='noreferrer'>
             <img src={twitter_logo} alt="twitter logo" />
           </a>
         )}

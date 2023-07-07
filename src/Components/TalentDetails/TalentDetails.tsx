@@ -9,11 +9,9 @@ import CurrentLive from "./CurrentLive/CurrentLive";
 
 const TalentDetails = () => {
   const { id } = useParams()
-
   const [talent, setTalent] = useState<Talent>()
-
-  const {data: talentData, isPending: talentIsPending, error: talentError} = useFetch(
-    {
+  const {data: talentData, isPending: talentIsPending, error: talentError} = 
+    useFetch({
       url: 'https://holodex.net/api/v2/channels/' + id,
       options: {
         method: 'GET',
@@ -21,21 +19,17 @@ const TalentDetails = () => {
       }
     })
 
-    useEffect(() => {
-      setTalent(talentData)  
-    },[talentData])
+  useEffect(() => {
+    setTalent(talentData)  
+  },[talentData])
 
   return ( 
     <>
-      { talentIsPending && 
-        <div className='loading'>Loading...</div>
-      }
+      { talentIsPending && <p className='loading'>Loading...</p> }
 
-      { talentError && 
-        <div className='error'>Error: {talentError}</div>
-      }
+      { talentError && <p className='error'>Error: {talentError}</p> }
 
-      {talent && 
+      { talent && 
         <div className="talent-details-container">
 
           <div className="banner">
@@ -44,7 +38,7 @@ const TalentDetails = () => {
 
           <div className="main">
 
-            <a href={"https://www.youtube.com/channel/" + id} className="profile-image" title={talent.name}>
+            <a href={"https://www.youtube.com/channel/" + id} className="profile-image" title={talent.name} target="_blank" rel="noreferrer">
               <div className="image-container">
                 {talent.photo && <img src={talent.photo} alt="profile" />}
                 {!talent.photo && <img src={default_photo} alt={talent.name+'\'s photo'} className='default'/> }
@@ -52,50 +46,42 @@ const TalentDetails = () => {
             </a>
 
             <div className="details">
-              <div className="name">{talent.name}</div>
-              <div className="desc">{talent.description}</div>
+              <p className="name">{talent.name}</p>
+              <p className="desc">{talent.description}</p>
             </div>
 
           </div>
 
           <div className="numbers">
-            <div className="subs">{
-              (+talent.subscriber_count).toLocaleString('da-DK') + " subs"
-            }
-            </div>
-            <div className="videos">{talent.video_count &&
-            (+talent.video_count).toLocaleString('da-DK') + " videos"
-            }</div>
-            <div className="clips">{talent.clip_count &&
-            "("+(+talent.clip_count).toLocaleString('da-DK') + " clips)"
-            }</div>
-            <div className="views">{talent.view_count &&
-            (+talent.view_count).toLocaleString('da-DK') + " views"
-            }</div>
+            <p className="subs">
+              {(+talent.subscriber_count).toLocaleString('da-DK') + " subs"}
+            </p>
+
+            <p className="videos">
+              {talent.video_count && (+talent.video_count).toLocaleString('da-DK') + " videos"}
+            </p>
+
+            <p className="clips">
+              {talent.clip_count && "("+(+talent.clip_count).toLocaleString('da-DK') + " clips)"}
+            </p>
+
+            <p className="views">
+              {talent.view_count && (+talent.view_count).toLocaleString('da-DK') + " views"}
+            </p>
           </div>
 
           <CurrentLive id={id+""}/>
 
-          <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past'}
-                        title={'Most recent livestreams & videos:'}/>
+          <StreamsList 
+            url={'https://holodex.net/api/v2/videos?channel_id=' + id +'&limit=10&status=past'}
+            title={'Most recent livestreams & videos:'}/>
 
-          { 
-            talent.top_topics[0] !== 'membersonly' &&
-            <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past&topic=' + talent.top_topics[0]}
-              title={'From this topic: '+ talent.top_topics[0]}/>
-          }
-
-          { 
-            talent.top_topics[1] !== 'membersonly' &&
-            <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past&topic=' + talent.top_topics[1]}
-              title={'From this topic: '+ talent.top_topics[1]}/>
-          }
-
-          { 
-            talent.top_topics[2] !== 'membersonly' &&
-            <StreamsList url={'https://holodex.net/api/v2/videos?channel_id=' + talent.id +'&limit=10&status=past&topic=' + talent.top_topics[2]}
-              title={'From this topic: '+ talent.top_topics[2]}/>
-          }
+          { talent.top_topics.map(
+              topic => topic !== 'membersonly' &&
+              <StreamsList 
+                url={'https://holodex.net/api/v2/videos?channel_id=' + id + '&limit=10&status=past&topic=' + topic}
+                title={'From this topic: ' + topic}/>
+          )}
           
         </div>
       }
