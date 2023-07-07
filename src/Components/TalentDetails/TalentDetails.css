@@ -51,6 +51,8 @@
   font-size: 30px;
   font-weight: 900;
 
+  padding-left: 5px;
+
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -197,5 +199,9 @@
 
 .talent-details-container .main .default{
   filter: grayscale(80%) contrast(30%) brightness(160%) blur(1px);
+}
+
+.talent-details-container .main .profile-image{
+  height: fit-content ;
 }
 /* #endregion */

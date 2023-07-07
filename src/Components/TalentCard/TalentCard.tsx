@@ -28,7 +28,7 @@ const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, 
 
       <a href={"https://www.youtube.com/channel/" + id} className="profile-image" title={name} target='_blank' rel='noreferrer'>
         <div className="image-container">
-          {photo && <img src={photo} alt={name+'\'s photo'} /> }
+          {photo && <img src={photo} alt={name+'\'s photo'} loading='lazy'/> }
           {!photo && <img src={default_photo} alt={"unavailable"} className='default'/> }
         </div>
       </a>

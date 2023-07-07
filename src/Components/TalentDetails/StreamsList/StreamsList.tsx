@@ -31,7 +31,7 @@ const StreamsList = ({url, title} : {url: string, title : string}) => {
           <div className="videos">
             {lives.map(live => 
                 (live.topic_id !== 'membersonly' && live.type !== 'placeholder') &&
-                <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen key={live.id}/>
+                <iframe src={"https://www.youtube.com/embed/" + live.id} title="live" allowFullScreen key={live.id} loading="lazy"/>
             )}
           </div>
         </div>
