@@ -1,25 +1,9 @@
 import './TalentCard.css'
-import twitter_logo from './twitter-logo.png'
-import twitch_logo from './twitch-logo.png'
+import twitter_logo from './assets/twitter-logo.png'
+import twitch_logo from './assets/twitch-logo.png'
 import default_photo from '../default_photo.png'
 import { Link } from 'react-router-dom';
-
-export interface Talent{
-  id: string;
-  name: string;
-  group: string;
-  subscriber_count: string;
-  top_topics: string[];
-  description?: string;
-  photo?: string;
-  banner?: string;
-  video_count?: string;
-  view_count?: string;
-  clip_count?: string;
-  inactive?: boolean;
-  twitch?: string;
-  twitter?: string;
-}
+import { Talent } from '../../Model/Talent'
 
 const TalentCard = ({id, name, photo, group, twitch, twitter, subscriber_count, top_topics} : Talent) => {
 

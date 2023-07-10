@@ -10,7 +10,7 @@ const CurrentLive = ({id}: {id: string}) => {
       url: 'https://holodex.net/api/v2/live?channel_id=' + id +'&limit=1&status=live',
       options: {
         method: 'GET',
-        headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
+        headers: {Accept: 'application/json', 'X-APIKEY': process.env.REACT_APP_HOLODEX_API_KEY as string}
       }
   })
 

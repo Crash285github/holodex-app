@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../../useFetch";
 import { useEffect, useState } from "react";
-import { Talent } from "../TalentCard/TalentCard";
+import { Talent } from "../../Model/Talent";
 import './TalentDetails.css'
 import default_photo from '../default_photo.png'
 import StreamsList from "./StreamsList/StreamsList";
@@ -15,7 +15,7 @@ const TalentDetails = () => {
       url: 'https://holodex.net/api/v2/channels/' + id,
       options: {
         method: 'GET',
-        headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
+        headers: {Accept: 'application/json', 'X-APIKEY': process.env.REACT_APP_HOLODEX_API_KEY as string}
       }
     })
 
@@ -80,7 +80,8 @@ const TalentDetails = () => {
               topic => topic !== 'membersonly' &&
               <StreamsList 
                 url={'https://holodex.net/api/v2/videos?channel_id=' + id + '&limit=10&status=past&topic=' + topic}
-                title={'From this topic: ' + topic}/>
+                title={'From this topic: ' + topic}
+                key={topic}/>
           )}
           
         </div>

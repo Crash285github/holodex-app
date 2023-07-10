@@ -15,7 +15,7 @@ const StreamsList = ({url, title} : {url: string, title : string}) => {
     url: url,
     options: {
       method: 'GET',
-      headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
+      headers: {Accept: 'application/json', 'X-APIKEY': process.env.REACT_APP_HOLODEX_API_KEY as string}
     }
   })
     

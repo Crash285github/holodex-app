@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useFetch from '../../useFetch';
-import TalentCard, { Talent } from '../TalentCard/TalentCard';
+import TalentCard from '../TalentCard/TalentCard';
+import { Talent } from '../../Model/Talent'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './Body.css';
 
@@ -10,12 +11,14 @@ const Body = () => {
   const [offset, setOffset] = useState(10)
   const [canLoadMore, setCanLoadMore] = useState(true)
 
+  
+
   const {data} = useFetch(
     {
       url: 'https://holodex.net/api/v2/channels?type=vtuber&limit=10&org=Hololive&offset=0',
       options: {
         method: 'GET',
-        headers: {Accept: 'application/json', 'X-APIKEY': 'e25fc430-10c6-490a-b7e8-af76fc275cfd'}
+        headers: {Accept: 'application/json', 'X-APIKEY': process.env.REACT_APP_HOLODEX_API_KEY as string}
       }
     })
 
